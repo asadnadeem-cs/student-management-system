@@ -94,7 +94,7 @@ def search_student():
         with open("student.txt","r") as file:
             student_id = iterate_input(input("Enter ID: "))   
             #flag is used to see if student is found or not after lines are executed.
-            not flag
+            flag = False
             for line in file:
                     #strip() is used so all unwanted spaces are removed from left and right.
                     line_1 = line.strip()
@@ -121,7 +121,7 @@ def update_student():
             lines = file.readlines()
             student_ID = input("Enter ID: ")
             #flag is used to see if student is found or not after lines are executed.
-            not flag
+            flag = False
             if not flag:
                 #enumirate() is used with i so we know which line to update.
                 for i, line in enumerate(lines):
@@ -157,7 +157,7 @@ def delete_student():
             lines = file.readlines()             
         student_ID = input("Enter ID: ")
         #flag is used to know if we find the student to delete.
-        not flag
+        flag = False
         if not flag:
             for i, line in enumerate(lines):
                 line_2 = line.strip()
