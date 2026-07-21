@@ -68,10 +68,11 @@ def add_student():
             grade = grade.capitalize()
             #(f"{}\n") used so that the cursor moves to secound line.
             file.write(f"{grade}\n")
-            print("Student Added Auccessfully!")
+            print("Student Added Successfully!")
         #if id alreaady exists in file else is executed.              
         else:
-                print("ID Already Exists")
+            print("ID Already Exists")
+            return
 
 #This function is used to see all students and their details.
 def view_students():
@@ -79,12 +80,13 @@ def view_students():
     try:
         with open("student.txt","r") as file:
             for line in file:
-                line2 = line.rstrip()
-                student_id , name , age , grade = line2.split(",")
+                line_2 = line.rstrip()
+                student_id , name , age , grade = line_2.split(",")
                 print("ID:",student_id)
                 print("Name:",name)
                 print("Age:",age)
                 print("Grade:",grade)
+                print()
     except FileNotFoundError:
         print("Student Not Found.")
 
@@ -147,7 +149,7 @@ def update_student():
                 for line in lines:
                     file.write(line)        
     except FileNotFoundError:
-         print("No Studnets Found")
+         print("No Studets Found")
 
 #This function is used to delete a student.
 def delete_student():
@@ -155,7 +157,7 @@ def delete_student():
         #file is read and stored in lines because we can not directly read and write at the same time in a file.
         with open("student.txt","r") as file:
             lines = file.readlines()             
-        student_ID = input("Enter ID: ")
+        student_ID = iterate_input(input("Enter ID: "))
         #flag is used to know if we find the student to delete.
         flag = False
         if not flag:
